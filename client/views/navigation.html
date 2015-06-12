@@ -1,0 +1,88 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="/#/"><h1>Ducksoup</h1></a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav navbar-right" ng-show="loggedIn">
+	        
+	        <li ng-if="$root.mode === 'READ' || $root.mode === 'LIST'">
+	        	<a class="btn btn-default" href="/#/posts/new">Write a post</a>
+	        </li>
+	        <li ng-if="$root.mode === 'READ'">
+	        	<a class="btn btn-default" href="" ng-href="/#/posts/edit/{{$root._id}}">Edit</a>
+	        </li>
+	        <li ng-if="$root.mode === 'READ'">
+	        	<a class="btn btn-danger" href="" ng-click="$root.$broadcast('click/delete')">Delete</a>
+	        </li>
+	        <li ng-if="$root.mode === 'EDIT' || $root.mode === 'NEW'" ng-click="$root.$broadcast('click/publish')">
+	        	<a class="btn btn-default" href="">Publish</a>
+	       	</li>
+
+<!-- 	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign In<span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="#">Action</a></li>
+	            <li><a href="#">Another action</a></li>
+	            <li><a href="#">Something else here</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">Separated link</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">One more separated link</a></li>
+	          </ul>
+	        </li> -->
+	      </ul>
+		
+		<form id="signin" class="navbar-form navbar-right" role="form" ng-show="!loggedIn" ng-submit="loginForm($event)">
+		    <div class="input-group">
+		        <span class="input-group-addon"><a class="fa fa-user"></a></span>
+		        <input type="email" class="form-control" name="email" value="" placeholder="Email Address">                                        
+		    </div>
+
+		    <div class="input-group">
+		        <span class="input-group-addon"><a class="fa fa-lock"></a></span>
+		        <input type="password" class="form-control" name="password" value="" placeholder="Password">                                        
+		    </div>
+
+		    <button type="submit" class="btn btn-default">Login</button>
+		</form>
+
+		<form class="navbar-form navbar-right" role="search" ng-if="$root.mode === 'LIST'" ng-submit="searchForm($event)">
+
+			<div class="input-group">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+				</span>
+				<input type="text" class="form-control" placeholder="Search for...">
+			</div><!-- /input-group -->
+
+		</form>		
+	    
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+<div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-header">
+        	<button type="button" class="close fa fa-times" data-dismiss="modal" aria-hidden="true"></button>
+        	<h4 class="modal-title" id="myModalLabel">Login</h4>
+        </div>
+        <div class="modal-body row">
+			<a class="fa fa-facebook col-sm-6" href=""></a>
+			<a class="fa fa-twitter col-sm-6" href=""></a>
+		</div>
+</div>
+</div>
+</div>

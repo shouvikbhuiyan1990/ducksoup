@@ -1,0 +1,47 @@
+<div class="home-content">
+	<div class="header">
+	  <div class="imageContainer">
+	    <a href="#" class="thumbnail">
+	      <img ng-src="images/avatar.png" alt="avatar">
+	    </a>
+	  </div>
+	  <div class="heading"> 
+	  	<h1>{{profile.blogtitle}}</h1>		
+	  	<h4>{{profile.blogsubtitle}}</h4>		
+	  </div>
+	  <div class="counter">
+	  	<h2>{{profile.love}}</h2>
+	  </div>
+	  <div class="social">
+	  	<ul class="col-sm-6 col-sm-offset-3">
+	  		<li class="col-md-6">
+	  			<a class="btn btn-default" href="mailto:abc@def.gh">Email <i class="fa fa-envelope-o"></i></a>
+	  		</li>
+	  		<li class="col-md-6">
+	  			<a class="btn btn-default" href="#/">Follow <i class="fa fa-twitter"></i></a>
+	  		</li>
+	  	</ul>
+	  </div>
+	</div>
+
+	<div class="hr">
+		<span>LATEST STORIES</span>
+	</div>
+
+	<section class="content col-md-7 col-md-offset-3">
+		<div class="alert alert-danger" ng-show="error" role="alert">Apologies, some error occured.</div>
+		<div class="alert alert-info" ng-show="!posts || !posts.length " role="alert">No posts yet.</div>
+		<!-- Thanks for the hack: Pramith -->
+		<article ng-repeat="post in filteredPosts = (posts | filter:searchText)" ng-href="">
+			<div ng-bind-html="post.body"></div>
+			<footer>
+				<span class="col-sm-4"><a href="" class="btn btn-default" ng-href="#/posts/{{post._id}}">Continue Reading <i class="fa fa-arrow-circle-o-right"></i></a></span>
+				<div class="postinfo col-sm-8">
+					<span class="col-sm-4">{{post.minread}} min read</span>
+					<span class="col-sm-8">{{post.date}}</span>					
+				</div>
+			</footer>
+		</article>
+		<div class="alert alert-info" ng-show="!filteredPosts.length " role="alert">No Results.</div>
+	</section>
+</div>

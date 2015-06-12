@@ -1,0 +1,96 @@
+<div class="post-content col-sm-12">
+
+	<section ng-if="$root.mode === 'READ'">
+		<article>
+			<div ng-bind-html="post.body"></div>
+			<footer>
+				<a class="btn btn-default pull-right" ng-click="letsLove()" href="">Loved it <i class="fa fa-heart"></i></a>
+			</footer>
+		</article>
+		
+		<editbox lines="3"></editbox>	<!-- Write comments here-->
+
+		<div class="commentsSection">	<!-- See all comments here-->
+			<commentbox ng-repeat="comment in post.comments"></commentbox>
+		</div>
+
+	</section>
+
+	<div ng-if="$root.mode === 'NEW' || $root.mode === 'EDIT'">
+		<div class="alert alert-success" ng-show="status === 'true'" role="alert">
+			<span>Your post has been saved successfully.</span>
+			<a href ng-show="post._id" ng-href="/#/posts/{{post._id}}">Redirect to Post</a>
+			<a href ng-show="!post._id" ng-href="/#/posts/{{post._id}}">Redirect to homepage</a>
+		</div>
+		<div class="alert alert-danger" ng-show="status === 'false'" role="alert">
+			<span>Apologies, some error occured.</span>
+			<a href="/#/">Redirect to Home</a>
+		</div>
+		<form role="form">
+			<div class="form-group row">
+				<div class="col-sm-10">
+					<textarea placeholder="Write post here .." class="form-control ng-pristine ng-valid ng-touched" rows="30" ng-model="post.body"></textarea>
+				</div>
+
+				<div class="col-sm-2">
+					<span class="fa fa-info-circle launch-modal" data-toggle="modal" data-target="#infoModal"></span>
+					<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModal" aria-hidden="true">
+					    <div class="modal-dialog modal-lg">
+					        <div class="modal-content">
+					            <div class="modal-header">
+					            <button type="button" class="close fa fa-times" data-dismiss="modal" aria-hidden="true"></button>
+					            <h4 class="modal-title" id="myModalLabel">Markdown Cheatsheet</h4>
+					            </div>
+					            <div class="modal-body">
+<pre>
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+Alternatively, for H1 and H2, an underline-ish style:
+Alt-H1
+======
+Alt-H2
+------
+
+Italics, with *asterisks* or _underscores_.
+Bold, with **asterisks** or __underscores__.
+Combined emphasis with **asterisks and _underscores_**.
+Strikethrough uses two tildes. ~~Scratch this.~~
+
+* Unordered list can use asterisks
+- Or minuses
++ Or pluses
+
+[I'm an inline-style link](https://www.google.com)
+
+Images: 
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+
+```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
+
+> Blockquotes are very handy in email to emulate reply text.
+> This line is part of the same quote.
+
+</pre>
+					            </div>
+					        <!-- <div class="modal-footer">
+					                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					                <button type="button" class="btn btn-default">Save changes</button>
+					        </div> -->
+					    </div>
+					  </div>
+					</div>
+				</div>
+
+			</div>
+		</form>
+	</div>
+
+</div>

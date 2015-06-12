@@ -1,0 +1,34 @@
+{
+  "name": "Duck-Soup",
+  "version": "1.0",
+  "description": "Easy blog generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Duck-soup/ducksoup.git"
+  },
+  "keywords": [
+    "Duck",
+    "Soup"
+  ],
+  "author": "kshirish",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Duck-Soup/issues"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "Ducksoup": "init.js"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "cookie-parser": "^1.3.5",
+    "express": "*",
+    "express-session": "^1.11.3",
+    "mongojs": "*"
+  }
+}
