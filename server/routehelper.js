@@ -1,6 +1,7 @@
 var fs = require('fs');
-var api = require('./mongoApi.js'); 
-var db = api.getDatabase('Ducksoup');
+var api = require('./mongoApi.js');
+var db_URI = require('../config/database.js').url;
+var db = api.getDatabase(db_URI);
 var profile = api.getCollection(db, 'Profile');
 var post = api.getCollection(db, 'Post');
 var errorObj = { error: 'Error' };
