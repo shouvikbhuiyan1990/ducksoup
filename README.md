@@ -28,3 +28,8 @@ Checkout the [Demo]: https://murmuring-bastion-6912.herokuapp.com
 
 *Say hello @ kisleyshirish25@gmail.com*
 
+
+#Preview of Ducksoup webpage
+
+![screenshot-webpage](https://cloud.githubusercontent.com/assets/5382293/8181667/a355107a-1445-11e5-8edf-7eaa9bc375f1.png)
+
