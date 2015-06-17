@@ -30,5 +30,5 @@ router.get('/profile', routeHelper.callbacks[5]);
 router.get('/auth', routeHelper.callbacks[6]);
 router.post('/profile', routeHelper.callbacks[7]);
 
-
+// router.get('*', routeHelper.callbacks[8]);  // The 404 Route 
 console.log('Server running @ ' + port);
