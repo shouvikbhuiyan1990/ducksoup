@@ -225,6 +225,9 @@ module.exports = {
                 }
 
             });
-        }  
+        },
+        function (req, res) {   // 404 route
+            res.redirect('/');
+        }
     ]
 };
